@@ -46,7 +46,7 @@ data = pd.read_csv(r'D:\nam3ki2\onthipython\dehongngan\Countries.csv')
 X = data.iloc[:, 1:3].values
 K = 5
 centroids, idx = find_k_means(X, K, max_iters=10)
-
+# in ra trọng tâm cụm
 print(centroids)
 
 data_with_clusters = data.copy()
@@ -57,30 +57,32 @@ pd.set_option('display.max_columns', None)
 
 print(data_with_clusters)
 
+# in ra độ chính xác
+
 # đo độ tương phản của mỗi cụm có phân tách tốt hay không
 # Một Silhouette Score cao (gần 1) cho thấy mỗi điểm dữ liệu trong một cụm gần các điểm dữ liệu khác trong cùng cụm và xa các điểm dữ liệu trong các cụm khác.
 silhouette_avg = silhouette_score(X, idx)
 print("Silhouette Score:", silhouette_avg)
-# # Vẽ biểu đồ phân cụm
-# plt.figure(figsize=(8, 6))
-# plt.scatter(X[idx == 0, 0], X[idx == 0, 1], s=50, c='red', label='Cluster 0')
-# plt.scatter(X[idx == 1, 0], X[idx == 1, 1], s=50, c='blue', label='Cluster 1')
-# plt.scatter(X[idx == 2, 0], X[idx == 2, 1], s=50, c='green', label='Cluster 2')
-# plt.scatter(X[idx == 3, 0], X[idx == 3, 1],
-#             s=50, c='purple', label='Cluster 3')
-# plt.scatter(X[idx == 4, 0], X[idx == 4, 1],
-#             s=50, c='orange', label='Cluster 4')
-# plt.scatter(centroids[:, 0], centroids[:, 1], s=200,
-#             c='black', marker='X', label='Centroids')
-# plt.title('Clustering of Countries')
-# plt.xlabel('X')
-# plt.ylabel('Y')
-# plt.legend()
+# Vẽ biểu đồ phân cụm
+plt.figure(figsize=(8, 6))
+plt.scatter(X[idx == 0, 0], X[idx == 0, 1], s=50, c='red', label='Cluster 0')
+plt.scatter(X[idx == 1, 0], X[idx == 1, 1], s=50, c='blue', label='Cluster 1')
+plt.scatter(X[idx == 2, 0], X[idx == 2, 1], s=50, c='green', label='Cluster 2')
+plt.scatter(X[idx == 3, 0], X[idx == 3, 1],
+            s=50, c='purple', label='Cluster 3')
+plt.scatter(X[idx == 4, 0], X[idx == 4, 1],
+            s=50, c='orange', label='Cluster 4')
+plt.scatter(centroids[:, 0], centroids[:, 1], s=200,
+            c='black', marker='X', label='Centroids')
+plt.title('Clustering of Countries')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.legend()
 
-# # Hiển thị Silhouette Score trên biểu đồ
-# plt.text(plt.xlim()[0] + 0.05, plt.ylim()[1] - 0.1,
-#          'Silhouette Score: {:.2f}'.format(silhouette_avg), fontsize=12)
-# plt.show()
+# Hiển thị Silhouette Score trên biểu đồ
+plt.text(plt.xlim()[0] + 0.05, plt.ylim()[1] - 0.1,
+         'Silhouette Score: {:.2f}'.format(silhouette_avg), fontsize=12)
+plt.show()
 
 
 # 3. Tiêu chí đánh giá việc phân cụm (viết bằng lời):
