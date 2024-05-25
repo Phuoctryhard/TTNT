@@ -4,10 +4,12 @@ from numpy import genfromtxt
 from sklearn.model_selection import train_test_split
 
 
-#  Trả lời: Mô tả mô hình phân loại bằng hình ảnh hoặc bằng lời.
+### Mô tả mô hình phân loại bằng hình ảnh hoặc bằng lời.
 
-# Cách thức hoạt động của mô hình Logistic Regression with Softmax như sau: - Tính tổng có trọng số của đặc trưng đầu vào với ma trận trọng số w.
-# - Áp dụng hàm Softmax để tính toán xác suất dự đoán cho mỗi lớp. - Dựa vào xác suất dự đoán, lớp với xác suất cao nhất được chọn là lớp dự đoán cho mẫu dữ liệu
+# Cách thức hoạt động của mô hình Logistic Regression with Softmax như sau:
+# - Tính tổng có trọng số của đặc trưng đầu vào với ma trận trọng số w.
+# - Áp dụng hàm Softmax để tính toán xác suất dự đoán cho mỗi lớp.
+# - Dựa vào xác suất dự đoán, lớp với xác suất cao nhất được chọn là lớp dự đoán cho mẫu dữ liệu
 # đó.
 # Mô hình Logistic Regression with Softmax sử dụng hàm Softmax để tính toán các xác suất cho các lớp
 # khác nhau. Hàm Softmax được sử dụng để chuyển đổi giá trị đầu ra của mô hình thành các xác suất
